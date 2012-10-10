@@ -89,8 +89,7 @@ class UserPage(MainHandler):
             graph = facebook.GraphAPI(user.access_token)
             profile = graph.get_object("me")
             friends = graph.get_connections("me", "friends")
-            self.render('profile.html', user=user, profile=profile,
-                        token=user.access_token)
+            self.render('profile.html', user=user, profile=profile)
         else:
             self.redirect('/')
 

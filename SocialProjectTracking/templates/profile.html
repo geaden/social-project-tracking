@@ -2,7 +2,6 @@
 {% block content %}
 Hello, <a href="http://www.facebook.com/{{ profile.username }}">{{ profile.name }}! <img src="http://graph.facebook.com/{{ profile.id }}/picture?type=square"/></a> | <a href="logout">Logout</a>
            <br />
-           {{ token }}
            <form action="." method="POST">
 	           <textarea name="message"></textarea>
 	           <input type="submit" value="Post to wall!">
