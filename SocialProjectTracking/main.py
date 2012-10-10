@@ -19,34 +19,13 @@ import os
 import webapp2
 import jinja2
 import facebook
-from google.appengine.ext import db
+from settings import FACEBOOK_APP_ID, FACEBOOK_APP_SECRET
+
+from models import *
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir),
     autoescape = True)
-
-FACEBOOK_APP_ID = '531630580186665'
-FACEBOOK_APP_SECRET = '4213defabc83ac566267b8c6fe337c67'
-oauth_access_token = 'AAAHjgZBPiPikBAP06TmSNf6bjb3nKZArMseMZBJZAHTnHSwfCpLYUGgClcNNz3CLZAq6bNNaGj10FGKyYocoLT5y9cZAIDjGrwZCllAAaIgrAZDZD'
-
-class User(db.Model):
-    id = db.StringProperty(required=True)
-    created = db.DateTimeProperty(auto_now_add=True)
-    updated = db.DateTimeProperty(auto_now=True)
-    name = db.StringProperty(required=True)
-    profile_url = db.StringProperty(required=True)
-    access_token = db.StringProperty(required=True)
-
-class Project(db.Model):
-    name = db.StringProperty(required=True)
-    author = db.ReferenceProperty(required=True)
-    business = db.IntegerProperty(required=True, choices=(1,2,3))
-
-
-class Purchaser(db.Model):
-    user = db.ReferenceProperty(User)
-    name = db.StringProperty(required=True)
-    business = db.StringProperty(required=True, choices=('Heavy Industry','Software Development','IT'))
 
 
 class MainHandler(webapp2.RequestHandler):
