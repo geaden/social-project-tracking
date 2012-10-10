@@ -100,7 +100,7 @@ class MainPage(MainHandler):
         if user:
             self.redirect('/account')
         else:
-            self.render('index.html')
+            self.render('index.html', user=user)
 
 
 class UserPage(MainHandler):
