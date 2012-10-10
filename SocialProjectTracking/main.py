@@ -79,7 +79,7 @@ class MainPage(MainHandler):
         if user:
             self.redirect('/account')
         else:
-            self.render('index.html', user=user)
+            self.render('index.html', appid=FACEBOOK_APP_ID)
 
 
 class UserPage(MainHandler):
