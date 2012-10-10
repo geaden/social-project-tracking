@@ -85,7 +85,7 @@ class MainPage(MainHandler):
 class UserPage(MainHandler):
     def get(self):
         user = self.user
-        print user.acces_token
+        print user.access_token
         if user:
             graph = facebook.GraphAPI(user.access_token)
             profile = graph.get_object("me")
