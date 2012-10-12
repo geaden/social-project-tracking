@@ -118,7 +118,9 @@ class AddProject(MainHandler):
     def post(self):
         project_name = self.request.get('name')
         project_businees = int(self.request.get('business'))
-        project = Project(name=project_name, business=project_businees, author=self.user)
+        project = Project(name=project_name, 
+                          business=project_businees,
+                          author=self.user)
         project.put()
         self.redirect('/project/%d' % project.key().id())   
 
