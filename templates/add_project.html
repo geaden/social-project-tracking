@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<form action "." method="POST">
+	<label for="project_name">Project name</label>
+	<input id="project_name" type="edit" name="name">
+	<select name="business">
+		<option value="1">Hevay Industry</option>
+		<option value="2">Software development</option>
+		<option value="3">Cooking</option>
+	</select>
+	<input type="submit" value="Start"
+{% endblock %}
